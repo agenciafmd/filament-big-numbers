@@ -1,6 +1,6 @@
 {
     "name": "agenciafmd/filament-big-numbers",
-    "description": "Big Numbers",
+    "description": "Filament - Big Numbers",
     "license": "MIT",
     "authors": [
         {
@@ -9,7 +9,8 @@
         }
     ],
     "require": {
-        "php": "^8.4"
+        "php": "^8.4",
+        "agenciafmd/filament-admix": "v1.x-dev|dev-master"
     },
     "autoload": {
         "psr-4": {
