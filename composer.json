@@ -1,0 +1,28 @@
+{
+    "name": "agenciafmd/filament-big-numbers",
+    "description": "Big Numbers",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Irineu Junior",
+            "email": "irineu@fmd.ag"
+        }
+    ],
+    "require": {
+        "php": "^8.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Agenciafmd\\BigNumbers\\": "src/",
+            "Agenciafmd\\BigNumbers\\Database\\Factories\\": "database/factories/",
+            "Agenciafmd\\BigNumbers\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Agenciafmd\\BigNumbers\\Providers\\BigNumberServiceProvider"
+            ]
+        }
+    }
+}
