@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Agenciafmd\BigNumbers\Resources\BigNumbers\Schemas;
 
 use Agenciafmd\Admix\Resources\Infolists\Components\DateTimeEntry;
@@ -25,9 +27,9 @@ final class BigNumberForm
                             ->translateLabel()
                             ->required()
                             ->maxLength(255),
-//                        TextInput::make('sort')
-//                            ->translateLabel()
-//                            ->numeric(),
+                        //                        TextInput::make('sort')
+                        //                            ->translateLabel()
+                        //                            ->numeric(),
                     ])
                     ->collapsible()
                     ->columns()

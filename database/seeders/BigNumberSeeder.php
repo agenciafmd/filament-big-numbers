@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Agenciafmd\BigNumbers\Database\Seeders;
 
 use Agenciafmd\BigNumbers\Models\BigNumber;
 use Illuminate\Database\Seeder;
 
-class BigNumberSeeder extends Seeder
+final class BigNumberSeeder extends Seeder
 {
     public function run(): void
     {

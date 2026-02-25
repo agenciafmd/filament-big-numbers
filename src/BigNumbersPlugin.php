@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Agenciafmd\BigNumbers;
 
 use Agenciafmd\BigNumbers\Resources\BigNumbers\BigNumberResource;

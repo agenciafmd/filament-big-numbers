@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Agenciafmd\BigNumbers\Models;
 
 use Agenciafmd\BigNumbers\Database\Factories\BigNumberFactory;
@@ -13,7 +15,7 @@ use OwenIt\Auditing\Auditable;
 use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
 
 #[UseFactory(BigNumberFactory::class)]
-class BigNumber extends Model implements AuditableContract
+final class BigNumber extends Model implements AuditableContract
 {
     use Auditable, HasFactory, Prunable, SoftDeletes;
 

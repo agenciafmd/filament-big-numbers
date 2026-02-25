@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Agenciafmd\BigNumbers\Resources\BigNumbers\Tables;
 
 use Filament\Actions\Action;
@@ -29,9 +31,9 @@ final class BigNumbersTable
                     ->translateLabel()
                     ->sortable()
                     ->searchable(),
-//                TextColumn::make('sort')
-//                    ->translateLabel()
-//                    ->sortable(),
+                //                TextColumn::make('sort')
+                //                    ->translateLabel()
+                //                    ->sortable(),
                 ToggleColumn::make('is_active')
                     ->translateLabel()
                     ->sortable(),
@@ -58,7 +60,7 @@ final class BigNumbersTable
                     ->label($isReordering ? __('Disable reordering') : __('Enable reordering')),
             )
             ->defaultSort(function (Builder $query): Builder {
-                return $query/*->orderBy('is_active', 'desc')*/
+                return $query/* ->orderBy('is_active', 'desc') */
                     ->orderBy('sort')
                     ->orderBy('big_number');
             });

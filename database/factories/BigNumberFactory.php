@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Agenciafmd\BigNumbers\Database\Factories;
 
 use Agenciafmd\BigNumbers\Models\BigNumber;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class BigNumberFactory extends Factory
+final class BigNumberFactory extends Factory
 {
     protected $model = BigNumber::class;
 
