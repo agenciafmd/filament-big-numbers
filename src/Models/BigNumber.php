@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Agenciafmd\BigNumbers\Models;
 
 use Agenciafmd\BigNumbers\Database\Factories\BigNumberFactory;
+use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Attributes\UseFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,10 +20,38 @@ final class BigNumber extends Model implements AuditableContract
 {
     use Auditable, HasFactory, Prunable, SoftDeletes;
 
+    protected array $defaultSort = [
+        'sort' => 'asc',
+        'big_number' => 'asc',
+    ];
+
     public function prunable(): Builder
     {
         return self::query()
             ->where('deleted_at', '<=', now()->subDays(30));
+    }
+
+    #[Scope]
+    protected function isActive(Builder $query): void
+    {
+        $query->where('is_active', true);
+    }
+
+    #[Scope]
+    protected function sort(Builder $query): void
+    {
+        $defaultSort = $this->defaultSort ?? [
+            'is_active' => 'desc',
+            'name' => 'asc',
+        ];
+
+        foreach ($defaultSort as $field => $direction) {
+            if ($field === 'sort') {
+                $query->orderByRaw('-' . $query->qualifyColumn('sort') . ' DESC');
+            } else {
+                $query->orderBy($query->qualifyColumn($field), $direction);
+            }
+        }
     }
 
     protected function casts(): array
