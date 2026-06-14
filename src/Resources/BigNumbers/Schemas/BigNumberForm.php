@@ -46,7 +46,8 @@ final class BigNumberForm
                                 ->schema([
                                     Toggle::make('is_active')
                                         ->translateLabel()
-                                        ->default(true),
+                                        ->default(true)
+                                        ->columnSpanFull(),
                                     DateTimeEntry::make('created_at'),
                                     DateTimeEntry::make('updated_at'),
                                 ])
