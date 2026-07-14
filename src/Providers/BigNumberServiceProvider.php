@@ -40,6 +40,6 @@ final class BigNumberServiceProvider extends ServiceProvider
 
     private function registerConfigs(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../../config/filament-big-numbers.php', 'local-big-numbers');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/filament-big-numbers.php', 'filament-big-numbers');
     }
 }
