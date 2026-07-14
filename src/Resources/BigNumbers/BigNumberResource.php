@@ -25,8 +25,6 @@ final class BigNumberResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedHashtag;
 
-    protected static ?int $navigationSort = 8;
-
     protected static ?string $recordTitleAttribute = 'big_number';
 
     public static function getModelLabel(): string
@@ -37,6 +35,16 @@ final class BigNumberResource extends Resource
     public static function getPluralModelLabel(): string
     {
         return __('Big Numbers');
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return config('filament-big-numbers.navigation_sort');
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return config('filament-big-numbers.navigation_group');
     }
 
     public static function form(Schema $schema): Schema
