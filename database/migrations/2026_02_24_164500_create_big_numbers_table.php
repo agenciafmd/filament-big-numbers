@@ -10,7 +10,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('big_numbers', static function (Blueprint $table) {
+        Schema::create('big_numbers', static function (Blueprint $table): void {
             $table->id();
             $table->boolean('is_active')
                 ->default(true)

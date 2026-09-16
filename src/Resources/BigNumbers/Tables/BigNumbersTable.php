@@ -55,14 +55,10 @@ final class BigNumbersTable
             ])
             ->reorderable('sort')
             ->reorderRecordsTriggerAction(
-                fn (Action $action, bool $isReordering) => $action
+                fn (Action $action, bool $isReordering): Action => $action
                     ->button()
                     ->label($isReordering ? __('Disable reordering') : __('Enable reordering')),
             )
-            ->defaultSort(function (Builder $query): Builder {
-                return $query/* ->orderBy('is_active', 'desc') */
-                    ->orderBy('sort')
-                    ->orderBy('big_number');
-            });
+            ->defaultSort(fn (Builder $query): Builder => $query->sort());
     }
 }

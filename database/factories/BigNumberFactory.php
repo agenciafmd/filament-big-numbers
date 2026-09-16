@@ -7,6 +7,9 @@ namespace Agenciafmd\BigNumbers\Database\Factories;
 use Agenciafmd\BigNumbers\Models\BigNumber;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends Factory<BigNumber>
+ */
 final class BigNumberFactory extends Factory
 {
     protected $model = BigNumber::class;
