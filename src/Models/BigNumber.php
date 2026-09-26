@@ -33,7 +33,7 @@ final class BigNumber extends Model implements AuditableContract
     public function prunable(): Builder
     {
         return self::query()
-            ->where('deleted_at', '<=', now()->subDays(30));
+            ->where('deleted_at', '<=', today()->subDays(30));
     }
 
     #[Override]
