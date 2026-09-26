@@ -20,16 +20,25 @@ use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
 final class BigNumber extends Model implements AuditableContract
 {
     use Auditable;
+
+    /** @use HasFactory<BigNumberFactory> */
     use HasFactory;
+
     use Prunable;
     use SoftDeletes;
     use WithScopes;
 
+    /**
+     * @var array<string, 'asc'|'desc'>
+     */
     protected array $defaultSort = [
         'sort' => 'asc',
         'big_number' => 'asc',
     ];
 
+    /**
+     * @return Builder<self>
+     */
     public function prunable(): Builder
     {
         return self::query()

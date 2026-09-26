@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Agenciafmd\BigNumbers\Resources\BigNumbers\Pages;
 
 use Agenciafmd\Admix\Resources\Concerns\RedirectBack;
+use Agenciafmd\BigNumbers\Models\BigNumber;
 use Agenciafmd\BigNumbers\Resources\BigNumbers\BigNumberResource;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\ForceDeleteAction;
@@ -17,13 +18,18 @@ final class EditBigNumber extends EditRecord
 
     protected static string $resource = BigNumberResource::class;
 
+    /**
+     * @var array<int, string>
+     */
     protected $listeners = [
         'auditRestored',
     ];
 
     public function getRelationManagers(): array
     {
-        if ($this->record->trashed()) {
+        $record = $this->getRecord();
+
+        if ($record instanceof BigNumber && $record->trashed()) {
             return [];
         }
 
