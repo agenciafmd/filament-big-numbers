@@ -8,7 +8,7 @@ use Agenciafmd\BigNumbers\Models\BigNumber;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-uses(TestCase::class, RefreshDatabase::class);
+pest()->extend(TestCase::class)->use(RefreshDatabase::class);
 
 it('orders by the sort column with the empty ones last', function (): void {
     BigNumber::factory()->create(['sort' => null, 'big_number' => '100+']);
