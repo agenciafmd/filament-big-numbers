@@ -6,12 +6,14 @@ namespace Agenciafmd\BigNumbers\Database\Factories;
 
 use Agenciafmd\BigNumbers\Models\BigNumber;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Override;
 
 /**
  * @extends Factory<BigNumber>
  */
 final class BigNumberFactory extends Factory
 {
+    #[Override]
     protected $model = BigNumber::class;
 
     public function definition(): array

@@ -17,14 +17,18 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Override;
 use Tapp\FilamentAuditing\RelationManagers\AuditsRelationManager;
 
 final class BigNumberResource extends Resource
 {
+    #[Override]
     protected static ?string $model = BigNumber::class;
 
+    #[Override]
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedHashtag;
 
+    #[Override]
     protected static ?string $recordTitleAttribute = 'big_number';
 
     public static function getModelLabel(): string
